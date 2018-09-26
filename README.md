@@ -2,7 +2,7 @@
 
 > 抽奖组件, SASS 自定义样式, 日后会填坑
 
-##使用
+## 使用
 var mylottery = y.lottery('#lottery-id', options);
 
 // 点击开始抽奖
