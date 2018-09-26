@@ -14,10 +14,7 @@ class Ylottery extends yEvent {
 
     // 合并参数
     this.$config = yBase.extend({
-        id: '',
         start: 0,
-        maxLength: 9, // 最大长度
-        minRound: 2, // 最小圈数
         goods: [],
         btnTxt: '开始抽奖',
         btnStopTxt: '点击停止'
@@ -53,6 +50,9 @@ class Ylottery extends yEvent {
         $parent: this
       });
     }
+
+    // 设置默认选中
+    this.$emit('run', this.$current);
 
     // 创建抽奖按钮
     this.$el.append(`<div class="ylottery-start-btn" id="ylottery-start-btn">${this.$config.btnTxt}</div>`);
