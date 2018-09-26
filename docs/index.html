@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Lottery</title>
+<link href="y.lottery.css" rel="stylesheet"></head>
+
+<body>
+  <h1 style="text-align: center;">Lottery</h1>
+  <div id="lottery"></div>
+<script type="text/javascript" src="y.lottery.min.js"></script></body>
+<script>
+  var mylottery = y.lottery('#lottery', {
+    start: 1,
+    maxLength: 9,
+    goods: [{
+      id: 1,
+      name: '1-React Riot',
+      img: 'https://assets-cdn.github.com/images/modules/explore/events/universe2018-logo-mark.svg'
+    }, {
+      id: 2,
+      name: '2-Hacktoberfest',
+      img: 'https://assets-cdn.github.com/images/modules/explore/events/universe2018-logo-mark.svg'
+    }, {
+      id: 3,
+      name: '3-Roguelike',
+      img: 'https://assets-cdn.github.com/images/modules/explore/events/universe2018-logo-mark.svg'
+    }, {
+      id: 4,
+      name: '4-Github Universe',
+      img: 'https://assets-cdn.github.com/images/modules/explore/events/universe2018-logo-mark.svg'
+    }, {
+      id: 5,
+      name: '5-React Riot',
+      img: 'https://assets-cdn.github.com/images/modules/explore/events/universe2018-logo-mark.svg'
+    }, {
+      id: 6,
+      name: '6-Hacktoberfest',
+      img: 'https://assets-cdn.github.com/images/modules/explore/events/universe2018-logo-mark.svg'
+    }, {
+      id: 7,
+      name: '7-Roguelike',
+      img: 'https://assets-cdn.github.com/images/modules/explore/events/universe2018-logo-mark.svg'
+    }, {
+      id: 8,
+      name: '8-Github Universe',
+      img: 'https://assets-cdn.github.com/images/modules/explore/events/universe2018-logo-mark.svg'
+    }]
+  })
+
+  // 开始按钮
+  mylottery.$on('start', (type, index) => {
+    console.log(type, index)
+  })
+
+  // 停止按钮
+  mylottery.$on('stop', (type, params) => {
+    mylottery.end(2);
+  })
+
+  // 抽奖结束
+  mylottery.$on('end', (type, params) => {
+    console.log(type, params)
+  })
+
+</script>
+
+</html>
