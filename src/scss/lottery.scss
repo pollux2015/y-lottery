@@ -1,0 +1,144 @@
+@import 'variables';
+
+// 图片block;
+@mixin base-block($width: 100%, $height: 100%) {
+  position: absolute;
+  overflow: hidden;
+  float: left;
+  width: $goods-width;
+  height: $goods-height;
+  background: #ffefeb;
+  padding: $goods-gap;
+  text-align: center;
+  color: #77332C;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.ylottery-wrapper {
+  margin: 0 auto;
+  position: relative;
+  width: ($goods-width + $goods-gap * 2) * 3;
+  height: ($goods-width + $goods-gap * 2) * 3;
+  background: $wrapper-bg;
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .ylottery-start-btn {
+    cursor: pointer;
+  }
+
+  .ylottery-goods-item {
+    @include base-block;
+
+    &.active {
+      background: $yellow;
+    }
+
+    .ylottery-goods-txt {
+      font-weight: 700;
+      height: $goods-txt-height;
+      line-height: $goods-txt-height;
+    }
+
+    .ylottery-goods-img-outer {
+      display: table;
+      height: 40px;
+      line-height: 40px;
+
+      .ylottery-goods-img {
+        display: table-cell;
+        vertical-align: middle;
+        width: $goods-width;
+        height: $goods-height - $goods-txt-height;
+        overflow: hidden;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+  }
+
+  .ylottery-start-btn {
+    &:active {
+      opacity: .5;
+    }
+
+    @include base-block;
+    background: $yellow;
+    color: $heavy;
+    font-size: 30px;
+    line-height: $goods-height;
+    transition: $transition-base;
+  }
+}
+
+.ylottery-start-btn.running {
+  color: #fff;
+  background: $red;
+}
+
+.ylottery-start-btn.disabled {
+  color: #fff;
+  background: #000;
+}
+
+$one-block-width: $goods-gap*2+$goods-width;
+$one-block-height: $goods-gap*2+$goods-height;
+
+.ylottery-start-btn {
+  top: $one-block-height;
+  left: $one-block-width;
+}
+
+.ylottery-goods-item0 {
+  top: 0;
+  left: 0;
+}
+
+.ylottery-goods-item1 {
+  top: 0;
+  left: $one-block-width;
+}
+
+.ylottery-goods-item2 {
+  top: 0;
+  left: $one-block-width * 2;
+}
+
+.ylottery-goods-item3 {
+  top: $one-block-height;
+  left: $one-block-width * 2;
+}
+
+.ylottery-goods-item4 {
+  top: $one-block-height *2;
+  left: $one-block-width * 2;
+}
+
+.ylottery-goods-item5 {
+  top: $one-block-height *2;
+  left: $one-block-width;
+}
+
+.ylottery-goods-item6 {
+  top: $one-block-height *2;
+  left: 0;
+}
+
+.ylottery-goods-item7 {
+  top: $one-block-height;
+  left: 0;
+}

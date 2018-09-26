@@ -1,0 +1,30 @@
+//
+// color
+$yellow: #ffda0a !default;
+$red: #ee3e17 !default;
+
+$white: #ffeeeb;
+$pink: #ffc6be;
+$heavy: #77332C;
+
+$wrapper-bg: $red;
+$goods-bg: $white;
+$shade-color: $pink;
+$txt-color: $heavy;
+
+
+// fonts
+$font-family-base: 'microsoft yahei',
+'simsun',
+'\5b8b\4f53',
+sans-serif !default;
+$font-size: 14px !default; // assumes the browser default, typically
+
+// blocks
+$goods-gap: 0px;
+$goods-width: 200px;
+$goods-height: 200px;
+$goods-txt-height: 30px;
+$goods-shade-height: 10px;
+$border-radius: 10px;
+$transition-base: all 0.2s ease-in-out !default;
