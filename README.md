@@ -3,26 +3,9 @@
 > 抽奖组件, SASS 自定义样式, 日后会填坑
 
 ## 使用
+```
 var mylottery = y.lottery('#lottery-id', options);
-
-// 点击开始抽奖
-mylottery.$on('start', (type, index) => {
-console.log(type, index)
-})
-
-// 点击停止抽奖
-mylottery.$on('stop', (type, params) => {
-
-    // do something ....
-    // 设置在第2个位置停止, 索引最小为0
-    mylottery.end(2);
-
-})
-
-// 抽奖结束
-mylottery.$on('end', (type, params) => {
-console.log(type, params)
-})
+```
 
 ## 参数 options
 
