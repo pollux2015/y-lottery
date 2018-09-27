@@ -27,7 +27,7 @@ mylottery.$on('start', (etype, starIndex) => {
 
 ```
 // 停止按钮
-mylottery.$on('stop', (type, etype) => {
+mylottery.$on('stop', (etype) => {
   // dosomething...
   // 手动设置在第2个位置停止
   mylottery.end(2);
