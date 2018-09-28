@@ -17,12 +17,14 @@ class lotteryItem {
 
     let template = `
       <div class="ylottery-goods-item ylottery-goods-item${this.$index}" id="ylottery-goods-${this.$index}">
+        <div class="ylottery-inner">
+        <div class="ylottery-goods-txt">${this.$goods.name}</div>
         <div class="ylottery-goods-img-outer">
           <span class="ylottery-goods-img">
             <img src="${this.$goods.img}" alt="${this.$goods.name}"/>
           </span>
           </div>
-        <div class="ylottery-goods-txt">${this.$goods.name}</div>
+          </div>
       </div>
     `;
     this.$pnode.append(template);

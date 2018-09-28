@@ -25,6 +25,15 @@ class yDom {
     element.innerHTML = string;
   }
 
+  attr() {
+    let element = this.$el;
+    if (arguments.length == 2) {
+      element.setAttribute(arguments[0], arguments[1])
+    } else {
+      return element.getAttribute(arguments[0])
+    }
+  }
+
   // 添加class
   addClass(className) {
     let element = this.$el;

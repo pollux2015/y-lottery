@@ -13,7 +13,9 @@
 <script>
   var mylottery = y.lottery('#lottery', {
     start: 1,
-    maxLength: 9,
+    disable: false,
+    btnTxt: '抽奖',
+    btnStopTxt: '停止',
     goods: [{
       id: 1,
       name: '1-React Riot',
@@ -50,19 +52,34 @@
   })
 
   // 开始按钮
-  mylottery.$on('start', (type, index) => {
-    console.log(type, index)
+  mylottery.$on('start', (etype, starIndex) => {
+    console.log(etype, starIndex)
+    setTimeout(() => {
+      console.log('eeee')
+      mylottery.end(2);
+    }, 1000);
   })
 
   // 停止按钮
-  mylottery.$on('stop', (type, params) => {
-    mylottery.end(2);
+  mylottery.$on('stop', (etype) => {
+    // dosomething...
+
+    // 手动设置在第2个位置停止
+    setTimeout(() => {
+      console.log('eeee')
+      mylottery.end(2);
+    }, 1000);
   })
 
   // 抽奖结束
-  mylottery.$on('end', (type, params) => {
-    console.log(type, params)
+  mylottery.$on('end', (etype, endIndex) => {
+    console.log(etype, endIndex)
   })
+
+  // 抽奖中
+  // mylottery.$on('run', (etype, curIndex) => {
+  //   console.log(etype, curIndex)
+  // })
 
 </script>
 

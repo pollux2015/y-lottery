@@ -8,16 +8,13 @@ class Ylottery extends yEvent {
   constructor(ele, options) {
     super();
     this.$el = yDom(ele);
-    this.$el.addClass('ylottery-wrapper');
-
-    this.$disabled = false;
+    this.$dom = yDom;
 
     // 合并参数
     this.$config = yBase.extend({
         start: 0,
         goods: [],
-        btnTxt: '开始抽奖',
-        btnStopTxt: '点击停止'
+        btnTxt: '开始抽奖'
       },
       options
     );
@@ -29,6 +26,8 @@ class Ylottery extends yEvent {
     // 当前选中索引
     this.$current = this.$config.start;
     this.create();
+    this.setDisable(this.$config.disable); // 是否禁用
+    this.$el.addClass('ylottery-wrapper');
   }
 
   // 创建抽奖
@@ -59,42 +58,33 @@ class Ylottery extends yEvent {
 
     this.startBtn = yDom('#ylottery-start-btn');
     this.startBtn.$el.onclick = () => {
-      if (this.runnner) {
-        this.$emit('stop');
-      } else {
-        this.start();
-      }
+      this.start();
     }
   }
 
-  // 更新奖品列表
-  updateSoure(source) {
-    this.$config.source = source;
-    this.create();
+  // 设置不能点击
+  setDisable(state) {
+    this.$disable = state;
+    this.startBtn[this.$disable ? 'addClass' : 'removeClass']('disabled');
   }
 
   // 开始抽奖
   start() {
-    if (this.runnner) return;
+    if (this.runnner || this.$disable) return;
     this.startBtn.addClass('running');
-    this.startBtn.html(this.$config.btnStopTxt);
+    this.$config.runningTxt && this.startBtn.html(this.$config.runningTxt);
     this.$emit('start', this.$current);
     this.runAnimate('up');
   }
 
   // 抽奖结束
   end(endIndex) {
-    if (this.$disabled) return;
 
-    this.$disabled = true;
     let goodsLength = this.$config.goods.length;
 
     // 结束还需要运行的步数
     let offSteps = endIndex + (goodsLength - this.$current);
     let s = (this.$speedEnd - 70) / offSteps; // 加速度
-
-    this.startBtn.removeClass('running');
-    this.startBtn.addClass('disabled');
     this.runnner && clearTimeout(this.runnner);
     this.runAnimate('down', offSteps, s)
   }
@@ -114,6 +104,7 @@ class Ylottery extends yEvent {
       this.$current = nextIndex >= goods.length ? 0 : nextIndex;
 
       this.$emit('run', this.$current);
+      this.$el.attr('current', this.$current);
       this.runAnimate(state, --step, speed);
 
       // 在指定步数结束
@@ -121,9 +112,8 @@ class Ylottery extends yEvent {
         this.$emit('end', this.$current);
         this.runnner && clearTimeout(this.runnner);
         this.runnner = null;
-        this.startBtn.removeClass('disabled');
+        this.startBtn.removeClass('running');
         this.startBtn.html(this.$config.btnTxt);
-        this.$disabled = false;
       }
 
     }, this.currentSpeed);
