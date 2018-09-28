@@ -14,7 +14,7 @@ var mylottery = y.lottery('#lottery-id', options);
 | ---------- | ------ | -------------------------------------------------------------------------- | --------------------------------- |
 | start      | Number | 0                                                                          | 默认开始位置                      |
 | btnTxt     | String | 开始抽奖                                                                   | 开始按钮文字                      |
-| btnStopTxt | String | 点击停止                                                                   | 停止按钮文字                      |
+| runningTxt | String |                                                                            | 抽奖中文字                        |
 | goods      | Array  | `[{name: '商品1', img: '图片地址'}, {name: '商品2', img: '图片地址'} ...]` | 商品列表                          |
 | disable    | Boolen | false                                                                      | 是禁用 mylottery.setDisable(true) |
 
@@ -28,11 +28,9 @@ mylottery.$on('start', (etype, starIndex) => {
 ```
 
 ```
-// 停止按钮
-mylottery.$on('stop', (etype) => {
-  // dosomething...
-  // 手动设置在第2个位置停止
-  mylottery.end(2);
+// 点击开始按钮
+mylottery.$on('start_click', (etype) => {
+  console.log(etype)
 })
 ```
 
