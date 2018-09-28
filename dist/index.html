@@ -57,17 +57,14 @@
     setTimeout(() => {
       console.log('eeee')
       mylottery.end(2);
+      mylottery.setDisable(true)
     }, 1000);
   })
 
-  // 停止按钮
-  mylottery.$on('stop', (etype) => {
-    // dosomething...
 
-    // 手动设置在第2个位置停止
-    setTimeout(() => {
-      mylottery.end(2);
-    }, 2000);
+  // 点击开始按钮
+  mylottery.$on('start_click', (etype) => {
+    console.log(etype)
   })
 
   // 抽奖结束
