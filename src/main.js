@@ -70,6 +70,7 @@ class Ylottery extends yEvent {
 
   // 开始抽奖
   start() {
+    this.$emit('start_click', this.$current);
     if (this.runnner || this.$disable) return;
     this.startBtn.addClass('running');
     this.$config.runningTxt && this.startBtn.html(this.$config.runningTxt);
