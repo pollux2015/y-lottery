@@ -15,7 +15,7 @@
     start: 1,
     disable: false,
     btnTxt: '抽奖',
-    btnStopTxt: '停止',
+    runningTxt: '抽奖中',
     goods: [{
       id: 1,
       name: '1-React Riot',
@@ -66,9 +66,8 @@
 
     // 手动设置在第2个位置停止
     setTimeout(() => {
-      console.log('eeee')
       mylottery.end(2);
-    }, 1000);
+    }, 2000);
   })
 
   // 抽奖结束
@@ -77,9 +76,9 @@
   })
 
   // 抽奖中
-  // mylottery.$on('run', (etype, curIndex) => {
-  //   console.log(etype, curIndex)
-  // })
+  mylottery.$on('run', (etype, curIndex) => {
+    console.log(etype, curIndex)
+  })
 
 </script>
 
