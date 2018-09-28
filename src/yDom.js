@@ -38,7 +38,6 @@ class yDom {
   addClass(className) {
     let element = this.$el;
     if (!element.className.match(new RegExp('(\\s+|^)' + className + '(\\s+|$)'))) {
-      console.log(element.className, className)
       element.className += ' ' + className;
     }
     return element;
