@@ -37,7 +37,8 @@ class yDom {
   // 添加class
   addClass(className) {
     let element = this.$el;
-    if (!element.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))) {
+    if (!element.className.match(new RegExp('(\\s+|^)' + className + '(\\s+|$)'))) {
+      console.log(element.className, className)
       element.className += ' ' + className;
     }
     return element;
@@ -47,7 +48,7 @@ class yDom {
   removeClass(className) {
     let element = this.$el;
     if (element.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))) {
-      element.className = element.className.replace(new RegExp('(\\s|^)' + className + '(\\s|$)'), '')
+      element.className = element.className.replace(new RegExp('(\\s|^)' + className + '(\\s|$)'), ' ')
     }
     return element;
   }
