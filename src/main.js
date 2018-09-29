@@ -122,11 +122,11 @@ class Ylottery extends yEvent {
 }
 
 // 实例
-const lottery = (ele, options) => {
+const ylottery = (ele, options) => {
   let ins_ = new Ylottery(ele, options);
   return ins_;
 };
 
 export {
-  lottery
+  ylottery
 }
