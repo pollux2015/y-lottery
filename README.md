@@ -43,7 +43,7 @@ mylottery.$on('end', (etype, endIndex) => {
 
 ```
 // 抽奖中
-mylottery.$on('润', (etype, curIndex) => {
+mylottery.$on('run', (etype, curIndex) => {
   console.log(etype, curIndex)
 })
 ```
