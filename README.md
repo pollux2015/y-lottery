@@ -5,7 +5,7 @@
 ## 使用
 
 ```
-var mylottery = y.lottery('#lottery-id', options);
+var mylottery = ylottery('#lottery-id', options);
 ```
 
 ## 参数 options
