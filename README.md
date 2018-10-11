@@ -23,8 +23,12 @@ var mylottery = ylottery('#lottery-id', options);
 ```
 // 开始按钮
 mylottery.$on('start', (etype, starIndex) => {
-  console.log(etype, starIndex)
-})
+  console.log(etype, starIndex);
+  setTimeout(() => {
+    mylottery.end(2); // 在第3个位置停止, 开始为0
+    // mylottery.setDisable(true) // 禁用
+  }, 1000);
+});
 ```
 
 ```
