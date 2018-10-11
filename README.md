@@ -3,6 +3,7 @@
 > 抽奖组件, SASS 自定义样式, 日后会填坑
 
 ## 使用
+DEMO:  https://pollux2015.github.io/y-lottery/
 
 ```
 var mylottery = ylottery('#lottery-id', options);
