@@ -1,17 +1,17 @@
 import './scss/lottery.scss';
-import yEvent from './yEvent';
-import yBase from './yBase';
-import yDom from './yDom';
-import lotteryItem from './yLottery.item';
+import YEvent from './yEvent';
+import YBase from './yBase';
+import YDom from './yDom';
+import LotteryItem from './yLottery.item';
 
-class Ylottery extends yEvent {
+class Ylottery extends YEvent {
   constructor(ele, options) {
     super();
-    this.$el = yDom(ele);
-    this.$dom = yDom;
+    this.$el = YDom(ele);
+    this.$dom = YDom;
 
     // 合并参数
-    this.$config = yBase.extend({
+    this.$config = YBase.extend({
         start: 0,
         goods: [],
         btnTxt: '开始抽奖'
@@ -41,7 +41,7 @@ class Ylottery extends yEvent {
 
     // 创建奖品单元
     for (let i = 0; i < goods.length; i++) {
-      new lotteryItem({
+      new LotteryItem({
         $el: this.$el,
         curIndex: i,
         isLight: current === i,
@@ -56,10 +56,10 @@ class Ylottery extends yEvent {
     // 创建抽奖按钮
     this.$el.append(`<div class="ylottery-start-btn" id="ylottery-start-btn">${this.$config.btnTxt}</div>`);
 
-    this.startBtn = yDom('#ylottery-start-btn');
+    this.startBtn = YDom('#ylottery-start-btn');
     this.startBtn.$el.onclick = () => {
       this.start();
-    }
+    };
   }
 
   // 设置不能点击
@@ -87,12 +87,12 @@ class Ylottery extends yEvent {
     let offSteps = endIndex + (goodsLength - this.$current);
     let s = (this.$speedEnd - 70) / offSteps; // 加速度
     this.runnner && clearTimeout(this.runnner);
-    this.runAnimate('down', offSteps, s)
+    this.runAnimate('down', offSteps, s);
   }
 
   runAnimate(state, step, speed) {
 
-    if (state == 'up') { // 匀速运动
+    if (state === 'up') { // 匀速运动
       this.currentSpeed = 70;
     } else { // 减速运动
       let t = speed * step;
@@ -109,7 +109,7 @@ class Ylottery extends yEvent {
       this.runAnimate(state, --step, speed);
 
       // 在指定步数结束
-      if (state == 'down' && !step) {
+      if (state === 'down' && !step) {
         this.$emit('end', this.$current);
         this.runnner && clearTimeout(this.runnner);
         this.runnner = null;
@@ -129,4 +129,4 @@ const ylottery = (ele, options) => {
 
 export {
   ylottery
-}
+};

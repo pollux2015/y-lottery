@@ -1,4 +1,4 @@
-class yBase {
+class YBase {
 
   inArray(arr, value) {
     let i = arr.length;
@@ -43,7 +43,7 @@ class yBase {
 
     // 遍历
     for (; i < length; i++) {
-      if ((options = arguments[i]) != null) {
+      if ((options = arguments[i]) !== null) {
         for (name in options) {
 
           let src = target[name]; // 目标参数中name字段的值
@@ -92,4 +92,4 @@ class yBase {
   }
 }
 
-export default new yBase();
+export default new YBase();

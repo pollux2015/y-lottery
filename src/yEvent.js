@@ -1,8 +1,8 @@
-class yEvent {
+class YEvent {
   constructor() {
 
     // 保存事件类型，处理函数数组映射
-    this.handlers = {}
+    this.handlers = {};
   }
 
   // 注册给定类型的事件处理程序
@@ -11,7 +11,7 @@ class yEvent {
   $on(type, handler) {
 
     //判断事件处理数组是否有该类型事件
-    if (this.handlers[type] == undefined) {
+    if (this.handlers[type] === undefined) {
       this.handlers[type] = [];
     }
 
@@ -45,15 +45,14 @@ class yEvent {
       for (let i = 0; i < _handler.length; i++) {
 
         //找出本次需要处理的事件下标
-        if (_handler[i] == handler) {
+        if (_handler[i] === handler) {
+          //删除处理事件
+          _handler.splice(i, 1);
           break;
         }
       }
-
-      //删除处理事件
-      _handler.splice(i, 1);
     }
   }
 }
 
-export default yEvent
+export default YEvent;

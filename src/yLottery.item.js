@@ -1,7 +1,6 @@
-import yBase from './yBase'
-import yDom from './yDom';
+import YDom from './yDom';
 
-class lotteryItem {
+class LotteryItem {
   constructor(options) {
     this.$options = options;
     this.$parent = options.$parent; // 父对象
@@ -39,19 +38,19 @@ class lotteryItem {
     // 是否在当前结束
     this.$parent.$on('done', (type, finalIndex) => {
       this.setActive(finalIndex);
-    })
+    });
   }
 
   // 设置选中
   setActive(activeIndex) {
     let goodsList = this.$parent.$config.goods;
     let lastIndex = !activeIndex ? goodsList.length - 1 : activeIndex - 1;
-    let curretEl = yDom('#ylottery-goods-' + activeIndex);
-    let lastEl = yDom('#ylottery-goods-' + lastIndex);
+    let curretEl = YDom('#ylottery-goods-' + activeIndex);
+    let lastEl = YDom('#ylottery-goods-' + lastIndex);
     curretEl.addClass(this.activeClass);
     lastEl.removeClass(this.activeClass);
   }
 
 }
 
-export default lotteryItem
+export default LotteryItem;
