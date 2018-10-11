@@ -15,7 +15,7 @@ var mylottery = ylottery('#lottery-id', options);
 | ---------- | ------ | -------------------------------------------------------------------------- | --------------------------------- |
 | start      | Number | 0                                                                          | 默认开始位置                      |
 | btnTxt     | String | 开始抽奖                                                                   | 开始按钮文字                      |
-| runningTxt | String |                                                                            | 抽奖中文字                        |
+| runningTxt | String | 抽奖中                                                                          | 抽奖中文字                        |
 | goods      | Array  | `[{name: '商品1', img: '图片地址'}, {name: '商品2', img: '图片地址'} ...]` | 商品列表                          |
 | disable    | Boolen | false                                                                      | 是禁用 mylottery.setDisable(true) |
 
